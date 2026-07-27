@@ -24,10 +24,12 @@ app.get("/", (req, res) => {
 import userRouter from "./routes/userRoute.js"
 import assetRouter from "./routes/assetRoute.js"
 import claimRouter from "./routes/claimRoute.js";
+import adminRouter from "./routes/adminRoute.js";
 
 app.use("/api/v1/campusAssetRecovery/users/", userRouter)
 app.use("/api/v1/campusAssetRecovery/assets/", assetRouter)
 app.use("/api/v1/campusAssetRecovery/claims/", claimRouter);
+app.use("/api/v1/campusAssetRecovery/admin/", adminRouter)
 
 app.use((req, res) => {
   res.status(404).json({
