@@ -114,11 +114,12 @@ const login = async (req: Request, res: Response) => {
         message: "Invalid email or password",
       });
     }
-    generateToken(res, user._id.toString());
+    const token = generateToken(res, user._id.toString());
 
     return res.status(200).json({
       success: true,
       message: "Login successful",
+      token,
       user: {
         id: user._id,
         fullName: user.fullName,
